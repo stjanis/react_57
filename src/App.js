@@ -20,4 +20,5 @@ export default App;
 // update state object (store) with user name on submit (dispatch action)
 // return user name + random greeting text from store
 // import parent component in App.js
+// test it
 // add style and layout rules
