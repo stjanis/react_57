@@ -1,12 +1,7 @@
 import React from 'react';
 import UserInput from './components/UserInput';
-import UserSubmit from './components/UserSubmit';
 
-const App = () =>
-  <div>
-    <UserInput />
-    <UserSubmit />
-  </div>;
+const App = () => <UserInput />;
 
 export default App;
 
