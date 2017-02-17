@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import greetings from '../resources/greetings';
 
 class UserInput extends Component {
   constructor() {
@@ -6,7 +7,7 @@ class UserInput extends Component {
     this.state = {
       name: '',
       greeting: ''
-    }
+    };
     this.updateName = this.updateName.bind(this);
     this.clearName = this.clearName.bind(this);
     this.setGreeting = this.setGreeting.bind(this);
@@ -27,7 +28,6 @@ class UserInput extends Component {
   }
 
   setGreeting = () => {
-    const greetings = ['hello', 'hej', 'sveiki', 'hola'];
     this.setState({
       greeting: greetings[Math.floor(Math.random() * greetings.length)]
     });
