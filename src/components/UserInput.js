@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { setUserName } from '../actions/actions';
+import { setUserName, clearUserName } from '../actions/actions';
 import greetings from '../resources/greetings';
 
 class UserInput extends Component {
@@ -24,9 +24,7 @@ class UserInput extends Component {
 
   // clearName = () => {
   //   document.getElementById("user-input__name").value = '';
-  //   this.setState({
-  //     name: ''
-  //   });
+  //   this.props.setName();
   // }
   //
   // setGreeting = () => {
@@ -58,10 +56,13 @@ class UserInput extends Component {
     return (<div>
       <div>
         <div>What is your name?</div>
-        <input id="user-input__name" type="text" placeholder="your name" />
+        <input id="user-input-name" className="user-input__name" type="text" placeholder="your name" />
       </div>
-      <button onClick={() => this.props.setName(document.getElementById("user-input__name").value)}>
+      <button onClick={() => this.props.setName(document.getElementById("user-input-name").value)}>
         Submit
+      </button>
+      <button onClick={() => this.props.clearName("user-input-name")}>
+        Clear
       </button>
       {this.props.name ?
         <div>{this.props.name}!</div>
@@ -78,7 +79,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setName: (name) => dispatch(setUserName(name))
+    setName: (name) => dispatch(setUserName(name)),
+    clearName: (elemId) => dispatch(clearUserName(elemId))
   };
 };
 
