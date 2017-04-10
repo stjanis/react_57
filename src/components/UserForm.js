@@ -12,12 +12,24 @@ const UserForm = (props) => {
     props.clearName();
     document.getElementById(elemId).value = '';
   };
+
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      props.setName(document.getElementById("user-form-name").value);
+    }
+  }
   
   return (
     <div className="user-form">
       <div>
         <h1 className="user-form__title">What is your name?</h1>
-        <input id="user-form-name" className="user-form__name" type="text" placeholder="your name" />
+        <input 
+          id="user-form-name"
+          className="user-form__name"
+          type="text"
+          placeholder="your name"
+          onKeyDown={(e) => handleKeyDown(e)}
+        />
       </div>
       <button 
         className="user-form__button user-form__button--submit"
