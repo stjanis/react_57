@@ -1,0 +1,73 @@
+.user-form {
+  margin: 120px auto 0;
+  padding: 0 20px;
+
+  &__title {
+    color: #333;
+    font-size: 26px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+
+  &__name {
+    border: 1px solid #ccc;
+    padding: 15px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &__button {
+    width: 100%;
+    padding: 20px 0;
+    margin: 20px 0 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+
+    &--submit {
+      background: #83f442;
+      border-bottom: 5px solid #4eb712;
+      color: #1b4901;
+    }
+
+    &--clear {
+      background: #ff9963;
+      border-bottom: 5px solid #db5b18;
+      color: #722b05;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    margin: 60px 0 20px;
+  }
+
+  &__slogan {
+    color: #666;
+    text-align: center;
+    font-size: 28px;
+  }
+
+  @media screen and (min-width: 561px) {
+    margin-top: 200px;
+    padding: 0;
+    width: 600px;
+
+    &__button {
+      width: 48%;
+
+      &--submit {
+        margin: 0 4% 0 0;
+      }
+    }
+  }
+}
