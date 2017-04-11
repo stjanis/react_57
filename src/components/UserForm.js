@@ -1,23 +1,11 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
-import * as userActions from '../actions/userActions';
+import UserFormHOC from '../hoc/UserFormHOC';
 import greetings from '../resources/greetings';
 
 import '../assets/styles/partials/_user-form.scss'; 
 
 const UserForm = (props) => {
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  const clear = (elemId) => {
-    props.clearName();
-    document.getElementById(elemId).value = '';
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.keyCode === 13) {
-      props.setName(document.getElementById("user-form-name").value);
-    }
-  }
   
   return (
     <div className="user-form">
@@ -28,7 +16,7 @@ const UserForm = (props) => {
           className="user-form__name"
           type="text"
           placeholder="your name"
-          onKeyDown={(e) => handleKeyDown(e)}
+          onKeyDown={(e) => props.handleKeyDown(e, document.getElementById("user-form-name").value)}
         />
       </div>
       <button 
@@ -39,7 +27,7 @@ const UserForm = (props) => {
       </button>
       <button 
         className="user-form__button user-form__button--clear"
-        onClick={() => clear("user-form-name")}
+        onClick={() => props.clear("user-form-name")}
       >
         Clear
       </button>
@@ -61,19 +49,8 @@ UserForm.propTypes = {
   setName: PropTypes.func,
   clearName: PropTypes.func,
   name: PropTypes.string,
+  clear: PropTypes.func,
+  handleKeyDown: PropTypes.func,
 };
 
-const mapStateToProps = (state) => {
-  return {
-    name: state.name
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setName: (name) => dispatch(userActions.setUserName(name)),
-    clearName: () => dispatch(userActions.clearUserName())
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserForm);
+export default UserFormHOC(UserForm);
