@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
+// @todo test this
 const UserFormHOC = (C) => {
   class UserFormComp extends Component {
     constructor() {
@@ -23,9 +24,8 @@ const UserFormHOC = (C) => {
       return (
         <C
           name={this.props.name}
-          clearName={this.props.clearName}
+          clearName={this.clear}
           setName={this.props.setName}
-          clear={this.clear}
           handleKeyDown={this.handleKeyDown}
         />
       );
@@ -36,7 +36,6 @@ const UserFormHOC = (C) => {
     name: PropTypes.string,
     clearName: PropTypes.func,
     setName: PropTypes.func,
-    clear: PropTypes.func,
     handleKeyDown: PropTypes.func,
   };
 

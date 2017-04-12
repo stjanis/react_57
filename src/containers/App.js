@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import UserForm from './components/UserForm';
 import { connect } from 'react-redux';
-import * as userActions from './actions/userActions';
+import * as userActions from '../actions/userActions';
+import UserForm from '../components/UserForm';
 
 // 01: say hello
 // 1. prompt for user name

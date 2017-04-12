@@ -27,7 +27,7 @@ const UserForm = (props) => {
       </button>
       <button 
         className="user-form__button user-form__button--clear"
-        onClick={() => props.clear("user-form-name")}
+        onClick={() => props.clearName("user-form-name")}
       >
         Clear
       </button>
@@ -47,9 +47,8 @@ const UserForm = (props) => {
 
 UserForm.propTypes = {
   setName: PropTypes.func,
-  clearName: PropTypes.func,
   name: PropTypes.string,
-  clear: PropTypes.func,
+  clearName: PropTypes.func,
   handleKeyDown: PropTypes.func,
 };
 

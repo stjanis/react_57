@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import chai, {expect} from 'chai';
+// @todo
 // import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import UserForm from '../../components/UserForm';
@@ -10,25 +11,29 @@ chai.use(sinonChai);
 
 describe('<UserForm/>', () => {
   const getProps = () => ({
-    name: '',
+    name: 'Janis',
     setName: () => {},
     clearName: () => {},
-    clear: () => {},
     handleKeyDown: () => {},
   });
 
   it('should render correct elements based on props.name value', () => {
     const props = getProps();
     let wrapper = mount(<UserForm {...props} />);
-    expect(wrapper.find('.user-form__greeting')).to.have.length(0);
-    props.name = 'Janis';
-    wrapper = mount(<UserForm {...props} />);
     expect(wrapper.find('.user-form__greeting')).to.have.length(1);
+    props.name = '';
+    wrapper = mount(<UserForm {...props} />);
+    expect(wrapper.find('.user-form__greeting')).to.have.length(0);
   });
-});
 
-// let wrapper = mount(<Provider store={mockedStoreState}><ExtraService {...props} /></Provider>);
-// props.inputChange.should.not.have.been.called;
-// wrapper.find('.service-toggle').simulate('click');
-// props.inputChange.should.have.been.calledOnce;
-// expect(props.inputChange).to.have.been.calledWith(props.extraService.serviceId, 0);
+  // @todo 
+  // fix this, need a reference to DOM (or dom mockup)
+  // look into JsDom
+  // it('should handle onClick evenets properly', () => {
+  //   const props = getProps();
+  //   let wrapper = mount(<UserForm {...props} />);
+  //   wrapper.find('.user-form__button--submit').simulate('click');
+  //   props.setName.should.have.been.calledOnce;
+  //   expect(props.setName).to.have.been.calledWith(props.name, 0);
+  // });
+});
