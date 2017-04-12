@@ -1,44 +1,41 @@
 import React, { PropTypes } from 'react';
 import UserFormHOC from '../hoc/UserFormHOC';
-import greetings from '../resources/greetings';
 
 import '../assets/styles/partials/_user-form.scss'; 
 
 const UserForm = (props) => {
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-  
   return (
     <div className="user-form">
       <div>
-        <h1 className="user-form__title">What is your name?</h1>
+        <h1 className="user-form__title">Check the string length.</h1>
         <input 
-          id="user-form-name"
-          className="user-form__name"
+          id="user-form-string"
+          className="user-form__string"
           type="text"
-          placeholder="your name"
-          onKeyDown={(e) => props.handleKeyDown(e, document.getElementById("user-form-name").value)}
+          placeholder="input text string"
+          onKeyDown={(e) => props.handleKeyDown(e, document.getElementById("user-form-string").value)}
         />
       </div>
       <button 
         className="user-form__button user-form__button--submit"
-        onClick={() => props.setName(document.getElementById("user-form-name").value)}
+        onClick={() => props.setString(document.getElementById("user-form-string").value)}
       >
         Submit
       </button>
       <button 
         className="user-form__button user-form__button--clear"
-        onClick={() => props.clearName("user-form-name")}
+        onClick={() => props.clearString("user-form-string")}
       >
         Clear
       </button>
-      {props.name ?
-        <div className="user-form__greeting">
+      {props.string ?
+        <div className="user-form__result">
           <h2 className="user-form__subtitle">
-            {greeting}, {props.name}!
+            {props.string.length < 80 ?
+              `${props.string} is ${props.string.length} characters long!` :
+              'string is too long'
+            }
           </h2>
-          <p className="user-form__slogan">
-            Let's build react apps!
-          </p>
         </div>
       : null}
     </div>
@@ -46,9 +43,9 @@ const UserForm = (props) => {
 };
 
 UserForm.propTypes = {
-  setName: PropTypes.func,
-  name: PropTypes.string,
-  clearName: PropTypes.func,
+  setString: PropTypes.func,
+  string: PropTypes.string,
+  clearString: PropTypes.func,
   handleKeyDown: PropTypes.func,
 };
 

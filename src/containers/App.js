@@ -13,9 +13,9 @@ class App extends Component {
 
   getAllProps() {
     return {
-      name: this.props.name,
-      clearName: this.props.clearName,
-      setName: this.props.setName
+      string: this.props.string,
+      clearString: this.props.clearString,
+      setString: this.props.setString
     };
   }
 
@@ -29,21 +29,21 @@ class App extends Component {
 }
 
 App.propTypes = {
-  setName: PropTypes.func,
-  clearName: PropTypes.func,
-  name: PropTypes.string,
+  setString: PropTypes.func,
+  clearString: PropTypes.func,
+  string: PropTypes.string,
 };
 
 const mapStateToProps = (state) => {
   return {
-    name: state.name
+    string: state.string
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setName: (name) => dispatch(userActions.setUserName(name)),
-    clearName: () => dispatch(userActions.clearUserName())
+    setString: (string) => dispatch(userActions.setString(string)),
+    clearString: () => dispatch(userActions.clearString())
   };
 };
 

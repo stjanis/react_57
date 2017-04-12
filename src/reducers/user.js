@@ -1,7 +1,7 @@
-export function name(state = '', action) {
+export function string(state = '', action) {
   switch (action.type) {
-    case 'GET_USER_NAME':
-      return action.name;
+    case 'GET_STRING':
+      return action.string;
     default:
       return state;
   }

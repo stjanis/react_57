@@ -3,29 +3,31 @@ import React, { Component, PropTypes } from 'react';
 // @todo test this
 const UserFormHOC = (C) => {
   class UserFormComp extends Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.clear = this.clear.bind(this);
       this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
-  clear(elemId) {
-    this.props.clearName();
-    document.getElementById(elemId).value = '';
-  }
-
-  handleKeyDown(e, name) {
-    if (e.keyCode === 13) {
-      this.props.setName(name);
+    clear(elemId) {
+      this.props.clearString();
+      document.getElementById(elemId).value = '';
     }
-  }
+
+    handleKeyDown(e, string) {
+      if (e.keyCode === 13) {
+        if(string.length < 80) {
+          this.props.setString(string);
+        }
+      }
+    }
 
     render() {
       return (
         <C
-          name={this.props.name}
-          clearName={this.clear}
-          setName={this.props.setName}
+          string={this.props.string}
+          clearString={this.clear}
+          setString={this.props.setString}
           handleKeyDown={this.handleKeyDown}
         />
       );
@@ -33,9 +35,9 @@ const UserFormHOC = (C) => {
   }
 
   UserFormComp.propTypes = {
-    name: PropTypes.string,
-    clearName: PropTypes.func,
-    setName: PropTypes.func,
+    string: PropTypes.string,
+    clearString: PropTypes.func,
+    setString: PropTypes.func,
     handleKeyDown: PropTypes.func,
   };
 

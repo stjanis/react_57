@@ -1,18 +1,18 @@
-export function getUserName(name) {
+export function getString(string) {
   return {
-    type: 'GET_USER_NAME',
-    name
+    type: 'GET_STRING',
+    string
   };
 }
 
-export function setUserName(userName) {
+export function setString(userString) {
   return (dispatch) => {
-    dispatch(getUserName(userName));      
+    dispatch(getString(userString));
   };
 }
 
-export function clearUserName() {
+export function clearString() {
   return (dispatch) => {
-    dispatch(setUserName(''));
+    dispatch(setString(''));
   };
 }
