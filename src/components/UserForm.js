@@ -13,6 +13,7 @@ const UserForm = (props) => {
           className="user-form__string"
           type="text"
           placeholder="input text string"
+          onChange={() => props.setString(document.getElementById("user-form-string").value)}
           onKeyDown={(e) => props.handleKeyDown(e, document.getElementById("user-form-string").value)}
         />
       </div>
