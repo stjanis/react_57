@@ -11,19 +11,19 @@ chai.use(sinonChai);
 
 describe('<UserForm/>', () => {
   const getProps = () => ({
-    name: 'Janis',
-    setName: () => {},
-    clearName: () => {},
+    string: 'Janis',
+    setString: () => {},
+    clearString: () => {},
     handleKeyDown: () => {},
   });
 
   it('should render correct elements based on props.name value', () => {
     const props = getProps();
     let wrapper = mount(<UserForm {...props} />);
-    expect(wrapper.find('.user-form__greeting')).to.have.length(1);
-    props.name = '';
+    expect(wrapper.find('.user-form__result')).to.have.length(1);
+    props.string = '';
     wrapper = mount(<UserForm {...props} />);
-    expect(wrapper.find('.user-form__greeting')).to.have.length(0);
+    expect(wrapper.find('.user-form__result')).to.have.length(0);
   });
 
   // @todo 
