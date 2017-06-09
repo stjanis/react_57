@@ -1,18 +1,37 @@
-export function getUserName(name) {
+export function getQuote(quote) {
   return {
-    type: 'GET_USER_NAME',
-    name
+    type: 'GET_QUOTE',
+    quote
   };
 }
 
-export function setUserName(userName) {
+export function setQuote(userQuote) {
   return (dispatch) => {
-    dispatch(getUserName(userName));      
+    dispatch(getQuote(userQuote));      
   };
 }
 
-export function clearUserName() {
+export function clearQuote() {
   return (dispatch) => {
-    dispatch(setUserName(''));
+    dispatch(setQuote(''));
   };
 }
+
+// export function getAuthor(name) {
+//   return {
+//     type: 'GET_AUTHOR',
+//     name
+//   };
+// }
+
+// export function setAuthor(authorName) {
+//   return (dispatch) => {
+//     dispatch(getAuthor(authorName));      
+//   };
+// }
+
+// export function clearAuthor() {
+//   return (dispatch) => {
+//     dispatch(setAuthor(''));
+//   };
+// }

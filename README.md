@@ -7,3 +7,4 @@ ___
 
 1. Say Hello (also default branch)
 2. String length calculator
+3. Quote generator

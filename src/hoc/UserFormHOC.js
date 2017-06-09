@@ -10,22 +10,22 @@ const UserFormHOC = (C) => {
     }
 
   clear(elemId) {
-    this.props.clearName();
+    this.props.clearQuote();
     document.getElementById(elemId).value = '';
   }
 
-  handleKeyDown(e, name) {
+  handleKeyDown(e, quote) {
     if (e.keyCode === 13) {
-      this.props.setName(name);
+      this.props.setQuote(quote);
     }
   }
 
     render() {
       return (
         <C
-          name={this.props.name}
-          clearName={this.clear}
-          setName={this.props.setName}
+          quote={this.props.quote}
+          clearQuote={this.clear}
+          setQuote={this.props.setQuote}
           handleKeyDown={this.handleKeyDown}
         />
       );
@@ -33,9 +33,9 @@ const UserFormHOC = (C) => {
   }
 
   UserFormComp.propTypes = {
-    name: PropTypes.string,
-    clearName: PropTypes.func,
-    setName: PropTypes.func,
+    quote: PropTypes.string,
+    clearQuote: PropTypes.func,
+    setQuote: PropTypes.func,
     handleKeyDown: PropTypes.func,
   };
 
